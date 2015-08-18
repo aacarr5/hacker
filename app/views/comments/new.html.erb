@@ -1,0 +1,9 @@
+<div class="comment-container">
+	 <%= form_for [@comment,@post] do |f| %>
+	 <p>
+		 <%= f.label :body %>
+		 <%= f.text_field :body%>
+	 </p>
+	 <%= f.submit "Submit Comment"%>
+	 <% end %>
+</div>

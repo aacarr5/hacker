@@ -1,3 +1,9 @@
 <h1> Welcome to Hacker Clone</h1>
+<div class="post-index">
+	<ul id="post-list">
+		<%@posts.each do |post| %>
+			<li><%= link_to post.title, post_path(post)%></li>
+		<% end %>
+</div>
 
 <%=link_to "Create New Post", new_post_path%>

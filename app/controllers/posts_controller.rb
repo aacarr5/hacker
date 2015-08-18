@@ -8,9 +8,28 @@ class PostsController < ApplicationController
 		@post = Post.new
 	end
 
+	def update
+		@post = Post.find(params[:id])
+		@post.update(post_params)
+
+		if @post.valid?
+			redirect_to @post
+		else
+			render 'edit'
+		end
+	end
+
+	def show
+		@post = Post.find(params[:id])
+	end
+
+	def edit
+		@post = Post.find(params[:id])
+	end
+
 	def create
 		@post = Post.create(post_params)
-		if @post.valid
+		if @post.valid?
 			redirect_to @post
 		else
 			render 'new'
@@ -19,7 +38,7 @@ class PostsController < ApplicationController
 
 	private
 	def post_params
-		params.require(:post).permit(:title,:body,:user)
+		params.require(:post).permit(:title,:body)
 	end
 
 

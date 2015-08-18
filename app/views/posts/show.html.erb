@@ -1,0 +1,11 @@
+<article class="show-container">
+	<h3 class="post-title"><%=@post.title%></h3>
+	<h4 class="post-body"><%=@post.body%></h4>
+	<h5 class="post-date">Submitted: <%=time_ago_in_words(@post.created_at)%> ago</h5>
+</article>
+
+<%= link_to "Create Comment", new_post_comment_path(@post)%>
+
+<%= link_to "Edit Post", edit_post_path%>
+
+<%= link_to "Home",posts_path%>
