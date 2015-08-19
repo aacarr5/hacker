@@ -4,6 +4,11 @@ class PostsController < ApplicationController
 		@posts = Post.all
 	end
 
+	def destroy
+		Post.destroy(params[:id])
+		redirect_to '/'
+	end
+
 	def new
 		@post = Post.new
 	end
