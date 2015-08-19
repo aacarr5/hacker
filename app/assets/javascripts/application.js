@@ -14,3 +14,11 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+$(function(){
+	$("form[data-remote=true]").on("ajax:success",function(event){
+		// debugger
+		var listItem = $(event.target).closest("li");
+		listItem.remove();
+	})
+})

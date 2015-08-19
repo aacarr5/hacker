@@ -6,7 +6,15 @@ class PostsController < ApplicationController
 
 	def destroy
 		Post.destroy(params[:id])
-		redirect_to '/'
+		# @post.destroy <--why not this?
+		respond_to do |format|
+			format.js do
+				render nothing: true 
+			end
+			format.any do 
+				redirect_to posts_path
+			end
+		end		
 	end
 
 	def new
